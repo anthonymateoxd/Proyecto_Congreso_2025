@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Pavanam&family=Paytone+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pavanam&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+    overflow-y: auto; /* Permite el desplazamiento vertical */
+}
+
+@viewport {
+    width: device-width;
+    zoom: 1;
+  }
+
+
+.coming-soon {
+    background-color: #0B0E17;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Asegura que los elementos comiencen desde arriba */
+    position: relative;
+    padding: 0px; /* Agrega un margen interno para todo el contenido */
+}
+
+.nav-container {
+    width: 100%;
+    height: 90vh; /* 90% de la pantalla */
+    position: relative; /* Cambiado de absolute a relative para respetar el flujo */
+    background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 650px; /* Evita que colapse */
+    min-width: 1531px; /* Evita que el ancho sea menor a 500px */
+    margin: 0px 0; /* Agrega un margen superior e inferior */
+    z-index: 0;
+    padding: 20px;
+}
+
+.overlay-img {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 80%; /* Ajusta el tamaño al 80% del contenedor */
+    height: center; /* Mantiene la relación de aspecto */
+}
+
+.sub-navbar {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 150px;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; /* Para evitar que se extienda demasiado en pantallas grandes */
+    z-index: 2;
+    padding: 20px 0;
+}
+
+.logo {
+    width: 70px;
+    height: auto;
+}
+
+.navbar-buttons {
+    display: flex;
+    gap: 150px;
+}
+
+.navbar-btn {
+    background-color: transparent;
+    color: white;
+    border: 0px solid white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 15px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-btn:hover {
+    background-color: white;
+    color: #0B0E17;
+}
+
+.new-container {
+    width: 100%;
+    height: 90vh; /* Igual que .nav-container */
+    position: relative;
+    background-color: #1A1D29; /* Color de fondo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Asegura que el contenido se apile verticalmente */
+    min-height: 600px;
+    min-width: 100%;
+    margin-top: 5vh; /* Margen superior del 10% de la altura de la pantalla */
+    padding: 10px 0;
+    text-align: center;
+    color: white;
+    font-size: 60px; /* Aumenta el tamaño del texto */
+    font-family: 'Pavanam', sans-serif; /* Aplica la fuente Pavanam */
+}
+
+.countdown {
+    font-size: 50px; /* Tamaño de la fuente */
+    font-weight: bold; /* Negrita */
+    font-family: 'Paytone One', sans-serif;
+    color: white; /* Color del texto */
+    text-align: center; /* Asegura que el texto esté centrado */
+    margin-top: -100px; /* Espacio superior */
+}
+
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .navbar-buttons {
+      gap: 40px;
+    }
+    
+    .overlay-img {
+      width: 95%;
+    }
+
+    .navbar-buttons {
+        flex-direction: row;
+        gap: 5px;
+        justify-content: center; /* Centra los botones */
+        width: 100%; /* Asegura que se distribuyan */
+    }
+  }
+  
+/* Ajustes específicos para móviles */
+@media (max-width: 768px) {
+    .new-container {
+        font-size: 40px;
+        margin-top: 20px;
+    }
+
+    .countdown {
+        font-size: 35px;
+        margin-top: -15px;
+    }
+
+    .navbar-buttons {
+        flex-direction: row;
+        gap: 5px;
+        justify-content: center; /* Centra los botones */
+        width: 5%; /* Asegura que se distribuyan */
+    }
+}
+
+@media (max-width: 393px) {
+    .new-container {
+        font-size: 30px;
+        margin-top: -10px;
+    }
+
+    .countdown {
+        font-size: 25px;
+        margin-top: -10px;
+    }
+    .navbar-buttons {
+        flex-direction: row;
+        gap: 5px;
+        justify-content: center; /* Centra los botones */
+        width: 5%; /* Asegura que se distribuyan */
+    }
+}
+  /* Ajustes específicos para telefonos pequeños */
+  @media (max-width: 393px) {
+    .nav-container {
+        height: 50vh;
+        min-width: 100%; /* Ajusta el ancho mínimo al viewport */
+    }
+
+    .sub-navbar {
+        flex-direction: row;
+        padding: 10px;
+        margin-left: 0; /* Elimina el margen izquierdo */
+    }
+
+    .logo {
+        width: 60px;
+        height: auto;
+        margin-left: 20px;
+    }
+
+    .navbar-buttons {
+        flex-direction: row;
+        gap: 5px;
+        justify-content: center; /* Centra los botones */
+        width: 5%; /* Asegura que se distribuyan */
+    }
+
+    .navbar-btn {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    
+}
