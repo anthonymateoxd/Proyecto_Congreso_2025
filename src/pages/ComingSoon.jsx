@@ -1,62 +1,103 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from "react";
 import "../styles/ComingSoon.css";
-import fondo1 from '../Recursos/img/image1.png';
-import overlayImg from '../Recursos/img/Aniv.png';
-import logo from '../Recursos/img/logo.png';
+import fondo1 from "../Recursos/img/image1.png";
+import overlayImg from "../Recursos/img/30Aniv2.png";
+import logo from "../Recursos/img/logo.png";
+import fb from "../Recursos/img/iconos/fb.png";
+import ig from "../Recursos/img/iconos/ig.png";
+import git from "../Recursos/img/iconos/git.png";
+import google from "../Recursos/img/iconos/google.png";
 
 function ComingSoon() {
+  const targetDate = useMemo(() => new Date("2025-12-31T23:59:59"), []);
+
+  const calculateTimeLeft = () => {
+    const difference = targetDate - new Date();
+    return difference > 0 ? {
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / (1000 * 60)) % 60),
+      seconds: Math.floor((difference / 1000) % 60),
+    } : { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  };
+
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-
-  function calculateTimeLeft() {
-    const targetDate = new Date("2025-12-31T23:59:59");
-    const now = new Date();
-    const difference = targetDate - now;
-
-    if (difference > 0) {
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((difference / (1000 * 60)) % 60);
-      const seconds = Math.floor((difference / 1000) % 60);
-
-      return { days, hours, minutes, seconds };
-    } else {
-      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-    }
-  }
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
-
-    return () => clearInterval(timer);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    const timer = setInterval(() => setTimeLeft(calculateTimeLeft()), 1000);
+    return () => clearInterval(timer);
+  }, [targetDate]);
+
+  const formatTimeUnit = (unit) => unit.toString().padStart(2, '0');
+
   return (
-    <div className="coming-soon">
-      <div 
-        className="nav-container"
-        style={{ backgroundImage: `url(${fondo1})` }}
-      >
-        <img src={overlayImg} alt="Overlay" className="overlay-img" />
-
-        <div className="sub-navbar">
-          <img src={logo} alt="Logo" className="logo" />
-          <div className="navbar-buttons">
-            <button className="navbar-btn">Inicio</button>
-            <button className="navbar-btn">Acerca de</button>
-            <button className="navbar-btn">Talleres</button>
-            <button className="navbar-btn">Conferencias</button>
+    <div className="coming-soon-container">
+      {/* Hero Section */}
+      <header className="hero-section">
+        <div className="hero-background" style={{ backgroundImage: `url(${fondo1})` }} />
+        <img src={overlayImg} alt="Evento especial" className="hero-overlay" />
+        
+        <nav className="main-nav">
+          <img src={logo} alt="Logo" className="nav-logo" />
+          <div className={`nav-links ${isMobile ? 'mobile-menu' : ''}`}>
+            <button className="nav-link">Inicio</button>
+            <button className="nav-link">Acerca de</button>
+            <button className="nav-link">Talleres</button>
+            <button className="nav-link">Conferencias</button>
           </div>
-        </div>
-      </div>
+          {isMobile && <button className="menu-toggle">☰</button>}
+        </nav>
+      </header>
 
-      <div className="new-container">
-        <h2>PROXIMAMENTE</h2>
-        <p className="countdown">
-          {timeLeft.days}d : {timeLeft.hours}h : {timeLeft.minutes}m : {timeLeft.seconds}s
-        </p>
+      {/* Countdown Section */}
+      <section className="countdown-section">
+        <h2 className="section-title">PRÓXIMAMENTE</h2>
+        <div className="countdown-timer">
+          <span>{formatTimeUnit(timeLeft.days)}d</span>
+          <span>{formatTimeUnit(timeLeft.hours)}h</span>
+          <span>{formatTimeUnit(timeLeft.minutes)}m</span>
+          <span>{formatTimeUnit(timeLeft.seconds)}s</span>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="main-footer">
+  <div className="footer-social">
+    <div className="social-icons">
+      <a href="#" className="social-icon"><img src={fb} alt="Facebook" /></a>
+      <a href="#" className="social-icon"><img src={ig} alt="Instagram" /></a>
+      <a href="#" className="social-icon"><img src={google} alt="Google" /></a>
+      <a href="#" className="social-icon"><img src={git} alt="Github" /></a>
+    </div>
+  </div>
+  
+  <div className="footer-content">
+    <div className="footer-logo-container">
+      <img src={logo} alt="Logo Universidad" className="footer-logo" />
+    </div>
+    
+    <div className="footer-info">
+      <h3 className="footer-slogan">Ingeniería en sistemas<br />te cambia la vida</h3>
+      
+      <div className="footer-contact">
+        <p><strong>PBX: (502) 7952-1041</strong></p>
+        <p>Ingeniería en sistemas 2025</p>
       </div>
+      
+      <div className="footer-university">
+        <p>Universidad Mariano Gálvez de Guatemala</p>
+        <p>Derechos Reservados 2025 | Conferencia Ingeniería en sistemas</p>
+      </div>
+    </div>
+  </div>
+</footer>
     </div>
   );
 }
