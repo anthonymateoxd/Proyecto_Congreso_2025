@@ -7,6 +7,7 @@ import fb from "../Recursos/img/iconos/fb.png";
 import ig from "../Recursos/img/iconos/ig.png";
 import git from "../Recursos/img/iconos/git.png";
 import google from "../Recursos/img/iconos/google.png";
+import Umg from "../Recursos/img/Logofooter.png"; 
 
 function ComingSoon() {
   const targetDate = useMemo(() => new Date("2025-12-31T23:59:59"), []);
@@ -80,20 +81,20 @@ function ComingSoon() {
   
   <div className="footer-content">
     <div className="footer-logo-container">
-      <img src={logo} alt="Logo Universidad" className="footer-logo" />
+      <img src={Umg} alt="Logo Universidad" className="footer-logo" />
     </div>
     
     <div className="footer-info">
-      <h3 className="footer-slogan">Ingeniería en sistemas<br />te cambia la vida</h3>
+     
       
       <div className="footer-contact">
-        <p><strong>PBX: (502) 7952-1041</strong></p>
-        <p>Ingeniería en sistemas 2025</p>
+        <p><strong>PBX: (502) 7952-1041  </strong></p>
+        <p>Ingeniería en sistemas 2025  </p>
       </div>
       
       <div className="footer-university">
-        <p>Universidad Mariano Gálvez de Guatemala</p>
-        <p>Derechos Reservados 2025 | Conferencia Ingeniería en sistemas</p>
+        <p>Universidad Mariano Gálvez de Guatemala  </p>
+        <p>Derechos Reservados 2025 | Conferencia Ingeniería en sistemas  </p>
       </div>
     </div>
   </div>
