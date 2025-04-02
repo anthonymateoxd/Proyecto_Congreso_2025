@@ -1,207 +1,396 @@
+/* Font Imports */
 @import url('https://fonts.googleapis.com/css2?family=Pavanam&family=Paytone+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pavanam&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Radley:ital@0;1&display=swap');
 
-html, body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Evita el desplazamiento horizontal */
-    overflow-y: auto; /* Permite el desplazamiento vertical */
+/* Reset completo */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@viewport {
-    width: device-width;
-    zoom: 1;
-  }
-
-
-.coming-soon {
-    background-color: #0B0E17;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; /* Asegura que los elementos comiencen desde arriba */
-    position: relative;
-    padding: 0px; /* Agrega un margen interno para todo el contenido */
+/* Base Styles */
+:root {
+  --primary-bg: #0B0E17;
+  --secondary-bg: #1A1D29;
+  --accent-color: #FFFFFF;
+  --text-light: #FFFFFF;
+  --text-dark: #333333;
+  --font-main: 'Pavanam', sans-serif;
+  --font-heading: 'Paytone One', sans-serif;
+  --font-serif: 'Radley', serif;
 }
 
-.nav-container {
-    width: 100%;
-    height: 90vh; /* 90% de la pantalla */
-    position: relative; /* Cambiado de absolute a relative para respetar el flujo */
-    background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 650px; /* Evita que colapse */
-    min-width: 1531px; /* Evita que el ancho sea menor a 500px */
-    margin: 0px 0; /* Agrega un margen superior e inferior */
-    z-index: 0;
-    padding: 20px;
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-.overlay-img {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    width: 80%; /* Ajusta el tamaño al 80% del contenedor */
-    height: center; /* Mantiene la relación de aspecto */
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-main);
+  color: var(--text-light);
+  background-color: var(--primary-bg);
+  line-height: 1.6;
 }
 
-.sub-navbar {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 150px;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px; /* Para evitar que se extienda demasiado en pantallas grandes */
-    z-index: 2;
-    padding: 20px 0;
+.coming-soon-container {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.logo {
-    width: 70px;
-    height: auto;
+/* Hero Section */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  max-height: 1200px;
+  min-height: 600px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
-.navbar-buttons {
-    display: flex;
-    gap: 150px;
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
 }
 
-.navbar-btn {
-    background-color: transparent;
-    color: white;
-    border: 0px solid white;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 15px;
-    transition: background-color 0.3s, color 0.3s;
+.hero-overlay {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  max-height: 80%;
+  z-index: 1;
+  object-fit: contain;
 }
 
-.navbar-btn:hover {
-    background-color: white;
-    color: #0B0E17;
+/* Navigation */
+.main-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  background-color: rgba(11, 14, 23, 0.7);
+  margin: 0;
 }
 
-.new-container {
-    width: 100%;
-    height: 90vh; /* Igual que .nav-container */
-    position: relative;
-    background-color: #1A1D29; /* Color de fondo */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column; /* Asegura que el contenido se apile verticalmente */
-    min-height: 600px;
-    min-width: 100%;
-    margin-top: 5vh; /* Margen superior del 10% de la altura de la pantalla */
-    padding: 10px 0;
-    text-align: center;
-    color: white;
-    font-size: 60px; /* Aumenta el tamaño del texto */
-    font-family: 'Pavanam', sans-serif; /* Aplica la fuente Pavanam */
+.nav-logo {
+  height: 80px;
+  width: auto;
+  transition: transform 0.3s ease;
 }
 
-.countdown {
-    font-size: 50px; /* Tamaño de la fuente */
-    font-weight: bold; /* Negrita */
-    font-family: 'Paytone One', sans-serif;
-    color: white; /* Color del texto */
-    text-align: center; /* Asegura que el texto esté centrado */
-    margin-top: -100px; /* Espacio superior */
+.nav-logo:hover {
+  transform: scale(1.05);
 }
 
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
 
-/* Tablets */
+.nav-link {
+  background: transparent;
+  color: var(--text-light);
+  border: none;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  margin: 0;
+}
+
+.nav-link:hover {
+  color: var(--accent-color);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 70%;
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin: 0;
+}
+
+/* Countdown Section */
+.countdown-section {
+  width: 100%;
+  min-height: 50vh;
+  padding: 4rem 5%;
+  background-color: var(--secondary-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+}
+
+.section-title {
+  font-family: var(--font-main);
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 2rem;
+  color: var(--text-light);
+}
+
+.countdown-timer {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.countdown-timer span {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: bold;
+  color: var(--accent-color);
+  min-width: 80px;
+}
+
+/* Footer - Versión actualizada con redes sociales */
+.main-footer {
+  width: 100%;
+  background-color: var(--primary-bg);
+  color: white;
+  padding: 0;
+}
+
+.footer-social {
+  width: 100%;
+  background-color: #0B0E17;
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.social-icon img {
+  width: 55px;
+  height: 60px;
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover img {
+  transform: scale(1.2);
+}
+
+.footer-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+}
+
+.footer-logo-container {
+  flex: 0 0 auto;
+}
+
+.footer-logo {
+  height: 120px;
+  width: auto;
+}
+
+.footer-info {
+  flex: 1;
+  text-align: right;
+}
+
+.footer-slogan {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.footer-contact p, 
+.footer-university p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.footer-contact strong {
+  color: var(--accent-color);
+}
+
+/* Responsive Design */
 @media (max-width: 1024px) {
-    .navbar-buttons {
-      gap: 40px;
-    }
-    
-    .overlay-img {
-      width: 95%;
-    }
-
-    .navbar-buttons {
-        flex-direction: row;
-        gap: 5px;
-        justify-content: center; /* Centra los botones */
-        width: 100%; /* Asegura que se distribuyan */
-    }
+  .nav-links {
+    gap: 1.5rem;
   }
   
-/* Ajustes específicos para móviles */
+  .hero-overlay {
+    max-width: 95%;
+  }
+  
+  .countdown-section {
+    padding: 4rem 5%;
+  }
+  
+  .footer-content {
+    gap: 2rem;
+  }
+  
+  .footer-logo {
+    height: 100px;
+  }
+  
+  .footer-slogan {
+    font-size: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
-    .new-container {
-        font-size: 40px;
-        margin-top: 20px;
-    }
-
-    .countdown {
-        font-size: 35px;
-        margin-top: -15px;
-    }
-
-    .navbar-buttons {
-        flex-direction: row;
-        gap: 5px;
-        justify-content: center; /* Centra los botones */
-        width: 5%; /* Asegura que se distribuyan */
-    }
+  .main-nav {
+    padding: 1rem 5%;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-color: var(--primary-bg);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 2rem;
+    gap: 2rem;
+    transition: left 0.3s ease;
+  }
+  
+  .nav-links.mobile-menu {
+    left: 0;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+  
+  .hero-overlay {
+    max-width: 100%;
+    max-height: 60%;
+  }
+  
+  .countdown-section {
+    min-height: 40vh;
+    padding: 3rem 5%;
+  }
+  
+  .countdown-timer {
+    gap: 0.5rem;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 5%;
+  }
+  
+  .footer-info {
+    text-align: center;
+  }
+  
+  .social-icons {
+    gap: 1rem;
+  }
 }
 
-@media (max-width: 393px) {
-    .new-container {
-        font-size: 30px;
-        margin-top: -10px;
-    }
-
-    .countdown {
-        font-size: 25px;
-        margin-top: -10px;
-    }
-    .navbar-buttons {
-        flex-direction: row;
-        gap: 5px;
-        justify-content: center; /* Centra los botones */
-        width: 5%; /* Asegura que se distribuyan */
-    }
-}
-  /* Ajustes específicos para telefonos pequeños */
-  @media (max-width: 393px) {
-    .nav-container {
-        height: 50vh;
-        min-width: 100%; /* Ajusta el ancho mínimo al viewport */
-    }
-
-    .sub-navbar {
-        flex-direction: row;
-        padding: 10px;
-        margin-left: 0; /* Elimina el margen izquierdo */
-    }
-
-    .logo {
-        width: 60px;
-        height: auto;
-        margin-left: 20px;
-    }
-
-    .navbar-buttons {
-        flex-direction: row;
-        gap: 5px;
-        justify-content: center; /* Centra los botones */
-        width: 5%; /* Asegura que se distribuyan */
-    }
-
-    .navbar-btn {
-        font-size: 12px;
-        padding: 6px 12px;
-    }
-
-    
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: 500px;
+  }
+  
+  .nav-logo {
+    height: 60px;
+  }
+  
+  .section-title {
+    margin-bottom: 1.5rem;
+  }
+  
+  .countdown-timer span {
+    min-width: 60px;
+    font-size: 1.2rem;
+  }
+  
+  .footer-logo {
+    height: 80px;
+  }
+  
+  .footer-slogan {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-contact p, 
+  .footer-university p {
+    font-size: 0.9rem;
+  }
+  
+  .social-icon img {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .main-footer {
+    padding: 0;
+  }
 }
