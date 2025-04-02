@@ -59,45 +59,58 @@ function ComingSoon() {
 
       {/* Countdown Section */}
       <section className="countdown-section">
-        <h2 className="section-title">PRÓXIMAMENTE</h2>
+        <h2 className="section-title">P R Ó X I M A M E N T E</h2>
         <div className="countdown-timer">
-          <span>{formatTimeUnit(timeLeft.days)}d</span>
-          <span>{formatTimeUnit(timeLeft.hours)}h</span>
-          <span>{formatTimeUnit(timeLeft.minutes)}m</span>
-          <span>{formatTimeUnit(timeLeft.seconds)}s</span>
+          <div className="time-box">
+            <span>{formatTimeUnit(timeLeft.days)}</span>
+            <p className="time-title">DÍAS</p>
+          </div>
+          <span className="separator">:</span>
+          <div className="time-box">
+            <span>{formatTimeUnit(timeLeft.hours)}</span>
+            <p className="time-title">HORAS</p>
+          </div>
+          <span className="separator">:</span>
+          <div className="time-box">
+            <span>{formatTimeUnit(timeLeft.minutes)}</span>
+            <p className="time-title">MINUTOS</p>
+          </div>
+          <span className="separator">:</span>
+          <div className="time-box">
+            <span>{formatTimeUnit(timeLeft.seconds)}</span>
+            <p className="time-title">SEGUNDOS</p>
+          </div>
         </div>
       </section>
 
+
       {/* Footer */}
       <footer className="main-footer">
-  <div className="footer-social">
-    <div className="social-icons">
-      <a href="#" className="social-icon"><img src={fb} alt="Facebook" /></a>
-      <a href="#" className="social-icon"><img src={ig} alt="Instagram" /></a>
-      <a href="#" className="social-icon"><img src={google} alt="Google" /></a>
-      <a href="#" className="social-icon"><img src={git} alt="Github" /></a>
-    </div>
-  </div>
-  
-  <div className="footer-content">
-    <div className="footer-logo-container">
-      <img src={Umg} alt="Logo Universidad" className="footer-logo" />
-    </div>
-    
-    <div className="footer-info">
-     
-      
-      <div className="footer-contact">
-        <p><strong>PBX: (502) 7952-1041  </strong></p>
-        <p>Ingeniería en sistemas 2025  </p>
+        <div className="footer-social">
+          <div className="social-icons">
+            <a href="https://www.facebook.com/u.marianogalvez/" target="_blank" className="social-icon"><img src={fb} alt="Facebook" /></a>
+            <a href="https://www.instagram.com/marianogalvez/" target="_blank" className="social-icon"><img src={ig} alt="Instagram" /></a>
+            <a href="https://www.umg.edu.gt/" target="_blank" className="social-icon"><img src={google} alt="Google" /></a>
+          </div>
+        </div>
+        
+        <div className="footer-content">
+          <div className="footer-logo-container">
+            <img src={Umg} alt="Logo Universidad" className="footer-logo" />
+          </div>
+          <div className="footer-info">
+            <div className="footer-contact">
+              <p>info@umg.edu.gt</p>
+              <p><strong>PBX: (502) 7952-1041  </strong></p>
+              <p>Ingeniería en sistemas 2025  </p>
+            </div>
+              
+            <div className="footer-university">
+              <p>Universidad Mariano Gálvez de Guatemala  </p>
+              <p>© Derechos Reservados 2025 | Conferencia Ingeniería en sistemas  </p>
+            </div>
+        </div>
       </div>
-      
-      <div className="footer-university">
-        <p>Universidad Mariano Gálvez de Guatemala  </p>
-        <p>Derechos Reservados 2025 | Conferencia Ingeniería en sistemas  </p>
-      </div>
-    </div>
-  </div>
 </footer>
     </div>
   );
