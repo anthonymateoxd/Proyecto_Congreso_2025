@@ -1,6 +1,7 @@
 /* Font Imports */
 @import url('https://fonts.googleapis.com/css2?family=Pavanam&family=Paytone+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Radley:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet');
 
 /* Reset completo */
 * {
@@ -12,7 +13,7 @@
 /* Base Styles */
 :root {
   --primary-bg: #0B0E17;
-  --secondary-bg: #1A1D29;
+  --secondary-bg: #171E30;
   --accent-color: #FFFFFF;
   --text-light: #FFFFFF;
   --text-dark: #333333;
@@ -91,7 +92,7 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 10;
-  background-color: rgba(11, 14, 23, 0.7);
+  background-color: rgba(11, 14, 23, 0);
   margin: 0;
 }
 
@@ -157,9 +158,10 @@ body {
 
 /* Countdown Section */
 .countdown-section {
+  background: linear-gradient(#0B0E17, #2B375B, #141A2B, #0B0E17);
   width: 100%;
   min-height: 50vh;
-  padding: 4rem 5%;
+  padding: 9rem 5%;
   background-color: var(--secondary-bg);
   display: flex;
   flex-direction: column;
@@ -171,29 +173,41 @@ body {
 
 .section-title {
   font-family: var(--font-main);
-  font-size: clamp(2rem, 5vw, 4rem);
-  margin-bottom: 2rem;
+  font-size: 8.2em;
+  margin-bottom: 1rem;
   color: var(--text-light);
 }
 
 .countdown-timer {
   display: flex;
-  gap: 1rem;
+  gap: 3rem;
   flex-wrap: wrap;
   justify-content: center;
   margin: 0;
   padding: 0;
+  font-family: paytone-one;
 }
 
 .countdown-timer span {
   font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-size: 6em;
   font-weight: bold;
   color: var(--accent-color);
-  min-width: 80px;
+  min-width: auto;
+  
 }
 
-/* Footer - Versión actualizada con redes sociales */
+.time-title{
+  font-family: var(--font-main);
+  font-size: 1.2em;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+}
+
+
+/* Footer */ 
 .main-footer {
   width: 100%;
   background-color: var(--primary-bg);
@@ -204,72 +218,65 @@ body {
 .footer-social {
   width: 100%;
   background-color: #0B0E17;
-  padding: 1.5rem 0;
+  padding: 2rem 0 0; 
   display: flex;
   justify-content: center;
+  align-items: flex-end; 
+  min-height: 80px;
 }
 
 .social-icons {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
+    display: flex;
+    gap: 25px; 
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .social-icon img {
-  width: 55px;
-  height: 60px;
-  transition: transform 0.3s ease;
+    width: 55px;
+    height: 55px;
+    filter: brightness(1);
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: -20px; 
 }
 
-.social-icon:hover img {
-  transform: scale(1.2);
+.social-icon img:hover {
+    transform: scale(1.1);
 }
 
 .footer-content {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 3rem 5%;
+  max-width: auto;
+  padding: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  gap: 3rem;
+  align-items: flex-end; 
 }
 
 .footer-logo-container {
-  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-end;
 }
 
 .footer-logo {
-  height: 120px;
-  width: auto;
-  position: absolute;
-  left: 0;
- }
+  height: auto;
+  max-height: 100px;
+}
 
 .footer-info {
-  flex: 1;
   text-align: right;
 }
 
-.footer-slogan {
-  font-family: var(--font-serif);
-  font-size: 1.8rem;
-  color: var(--accent-color);
-  margin-bottom: 1.5rem;
-  line-height: 1.3;
-}
-
-.footer-contact p, 
-.footer-university p {
-  margin: 0.5rem 0;
+.footer-contact p, .footer-university p {
+  margin: 0.4rem;
   font-size: 1rem;
 }
 
 .footer-contact strong {
   color: var(--accent-color);
 }
+
 
 /* Responsive Design */
 @media (max-width: 1024px) {
