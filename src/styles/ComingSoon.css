@@ -277,129 +277,209 @@ body {
   color: var(--accent-color);
 }
 
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .nav-links {
-    gap: 1.5rem;
+/* Para tablets */
+@media screen and (max-width: 768px) {
+  .main-nav {
+    padding: 1rem 2%;
   }
-  
+  .nav-links {
+    gap: 1rem;
+  }
+  .section-title {
+    font-size: 3em;
+  }
+  .countdown-timer span {
+    font-size: 3em;
+  }
+  .hero-overlay {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .countdown-section {
+    padding: 5rem 2%;
+  }
+}
+
+/* Media Queries para Responsividad */
+
+/* Para pantallas medianas (Tablets grandes y pequeños laptops) */
+@media (max-width: 1024px) {
+  .main-nav {
+    padding: 1.2rem 3%;
+  }
+  .nav-links {
+    gap: 40px;
+  }
   .hero-overlay {
     max-width: 95%;
   }
-  
-  .countdown-section {
-    padding: 4rem 5%;
+  .section-title {
+    font-size: 4.8em;
   }
-  
-  .footer-content {
-    gap: 2rem;
-  }
-  
-  .footer-logo {
-    height: 100px;
-  }
-  
-  .footer-slogan {
-    font-size: 1.5rem;
+  .countdown-timer span {
+    font-size: 4em;
   }
 }
 
+/* Para tablets y dispositivos medianos */
 @media (max-width: 768px) {
   .main-nav {
-    padding: 1rem 5%;
+      flex-direction: row;
+      padding: 5%;
+      width: 40%;
+      transform: scale(0.85);
+      transform-origin: top left;
   }
-  
   .nav-links {
-    position: fixed;
-    top: 80px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background-color: var(--primary-bg);
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 2rem;
-    gap: 2rem;
-    transition: left 0.3s ease;
+    gap: 0.5px; /* Reduce aún más el espacio entre los enlaces */
+    justify-content: flex-start; /* Alinea los enlaces hacia el inicio */
+    width: auto; /* Ajusta el ancho para que no ocupe tanto espacio */
+    flex-wrap: nowrap;
+    font-size: 2rem !important;    
+    padding: 0.1rem 0.2rem; /* Reduce el espacio interno */
   }
-  
-  .nav-links.mobile-menu {
-    left: 0;
-  }
-  
-  .menu-toggle {
-    display: block;
-  }
-  
   .hero-overlay {
+    top: 50%;
+    transform: translate(-50%, -50%);
     max-width: 100%;
-    max-height: 60%;
   }
-  
-  .countdown-section {
-    min-height: 40vh;
-    padding: 3rem 5%;
+  .section-title {
+    font-size: 2em;
   }
-  
   .countdown-timer {
+    flex-direction: row;
     gap: 0.5rem;
   }
-  
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-    padding: 2rem 5%;
-  }
-  
-  .footer-info {
-    text-align: center;
-  }
-  
-  .social-icons {
-    gap: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-section {
-    min-height: 500px;
-  }
-  
-  .nav-logo {
-    height: 60px;
-  }
-  
-  .section-title {
-    margin-bottom: 1.5rem;
-  }
-  
   .countdown-timer span {
-    min-width: 60px;
-    font-size: 1.2rem;
+    flex-direction: row;
+    font-size: 1.5em;
   }
-  
-  .footer-logo {
-    height: 80px;
+  .coming-soon-container {
+    padding: 0 1rem;
   }
-  
-  .footer-slogan {
-    font-size: 1.3rem;
+  .time-title{
+    flex-direction: row;
+    font-size: 0.9em;
+  }
+
+  /* Footer */ 
+
+   
+  .main-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que se envuelvan los elementos */
+    padding: 1rem 1%;
+  }
+
+  /* Asegura que el bloque social se centre y se ajuste en pantallas pequeñas */
+  .footer-social {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     margin-bottom: 1rem;
   }
-  
-  .footer-contact p, 
-  .footer-university p {
-    font-size: 0.9rem;
+
+  /* Para la parte de contenido del footer (logo e info) */
+  .footer-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que se apilen si es necesario */
+    width: 100%;
   }
-  
-  .social-icon img {
-    width: 25px;
-    height: 25px;
+
+  .footer-logo {
+    display: none; /* Oculta el logo */
   }
+
+  .footer-info {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+
+
   
+}
+
+/* Para teléfonos pequeños */
+@media (max-width: 393px) {
+  .main-nav {
+    flex-direction: row;
+    padding: 5%;
+    width: 40%;
+    transform: scale(0.8);
+    transform-origin: top left;
+  }
+  .nav-links {
+    gap: 0.5px; /* Reduce aún más el espacio entre los enlaces */
+    justify-content: flex-start; /* Alinea los enlaces hacia el inicio */
+    width: auto; /* Ajusta el ancho para que no ocupe tanto espacio */
+    flex-wrap: nowrap;
+    font-size: 0.3rem !important;    
+    padding: 0.1rem 0.2rem; /* Reduce el espacio interno */
+  }
+  .nav-logo {
+    width: 60px;
+    height: auto;
+    margin-left: 5px;
+  }
+  .section-title {
+    font-size: 2em;
+  }
+  .countdown-timer span {
+    flex-direction: row;
+    font-size: 1.5em;
+  }
+  .time-title{
+    flex-direction: row;
+    font-size: 0.9em;
+  }
+    /* Footer */
   .main-footer {
-    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que se envuelvan los elementos */
+    padding: 1rem 1%;
   }
+
+  /* Asegura que el bloque social se centre y se ajuste en pantallas pequeñas */
+  .footer-social {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  /* Para la parte de contenido del footer (logo e info) */
+  .footer-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que se apilen si es necesario */
+    width: 100%;
+  }
+
+  .footer-logo {
+    display: none; /* Oculta el logo */
+  }
+
+  .footer-info {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
 }
