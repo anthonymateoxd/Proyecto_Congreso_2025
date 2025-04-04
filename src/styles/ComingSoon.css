@@ -300,6 +300,28 @@ body {
   }
 }
 
+
+/* Media Queries para Responsividad */
+
+/* Para pantallas grandes */
+@media (max-width: 1440px) {
+  .main-nav {
+    padding: 1.2rem 3%;
+  }
+  .nav-links {
+    gap: 40px;
+  }
+  .hero-overlay {
+    max-width: 95%;
+  }
+  .section-title {
+    font-size: 4.5em;
+  }
+  .countdown-timer span {
+    font-size: 4em;
+  }
+}
+
 /* Media Queries para Responsividad */
 
 /* Para pantallas medianas (Tablets grandes y pequeños laptops) */
@@ -314,7 +336,7 @@ body {
     max-width: 95%;
   }
   .section-title {
-    font-size: 4.8em;
+    font-size: 4.5em;
   }
   .countdown-timer span {
     font-size: 4em;
