@@ -3,12 +3,13 @@ import moment from 'moment-timezone';
 import { obtenerTiempoRestante } from "../Logica/contador";
 import "../styles/ComingSoon.css";
 import fondo1 from "../Recursos/img/image1.png";
-import overlayImg from "../Recursos/img/30Aniv2.png";
+import overlayImg from "../Recursos/img/XIII.png";
 import logo from "../Recursos/img/logo.png";
 import fb from "../Recursos/img/iconos/fb.png";
 import ig from "../Recursos/img/iconos/ig.png";
 import google from "../Recursos/img/iconos/google.png";
 import Umg from "../Recursos/img/Logofooter.png"; 
+import fondo2 from "../Recursos/img/Edificio5.png";
 
 function ComingSoon() {
   const fechaObjetivo = "2025-04-18 00:00:00";
@@ -64,7 +65,7 @@ function ComingSoon() {
       </header>
 
       {/* Countdown Section */}
-      <section className="countdown-section">
+      <section className="countdown-section" style={{ backgroundImage: `url(${fondo2})` }}>
         <h2 className="section-title">P R Ó X I M A M E N T E</h2>
         <div className="countdown-timer">
           <div className="time-box">
@@ -93,8 +94,7 @@ function ComingSoon() {
       <footer className="main-footer">
         <div className="footer-social">
           <div className="social-icons">
-            <a href="https://www.facebook.com/u.marianogalvez/" target="_blank" className="social-icon"><img src={fb} alt="Facebook" /></a>
-            <a href="https://www.instagram.com/marianogalvez/" target="_blank" className="social-icon"><img src={ig} alt="Instagram" /></a>
+            <a href="https://www.facebook.com/share/15yy2oABkN/" target="_blank" className="social-icon"><img src={fb} alt="Facebook" /></a>
             <a href="https://www.umg.edu.gt/" target="_blank" className="social-icon"><img src={google} alt="Google" /></a>
           </div>
         </div>
@@ -105,13 +105,12 @@ function ComingSoon() {
           </div>
           <div className="footer-info">
             <div className="footer-contact">
-              <p>info@umg.edu.gt</p>
               <p><strong>PBX: (502) 7952-1041</strong></p>
-              <p>Ingeniería en sistemas 2025</p>
+              <p>Ingeniería en Sistemas 2025</p>
             </div>
             <div className="footer-university">
-              <p>Universidad Mariano Gálvez de Guatemala</p>
-              <p>© Derechos Reservados 2025 | Conferencia Ingeniería en sistemas</p>
+              <p>Universidad Mariano Gálvez de Guatemala | Campus Coban</p>
+              <p>© Derechos Reservados 2025 | XIII Congreso Ingeniería en Sistemas</p>
             </div>
           </div>
         </div>

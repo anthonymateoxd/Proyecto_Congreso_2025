@@ -68,6 +68,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   z-index: 0;
+  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
 }
 
 .hero-overlay {
@@ -158,7 +160,6 @@ body {
 
 /* Countdown Section */
 .countdown-section {
-  background: linear-gradient(#0B0E17, #2B375B, #141A2B, #0B0E17);
   width: 100%;
   min-height: 50vh;
   padding: 9rem 5%;
@@ -169,6 +170,13 @@ body {
   justify-content: center;
   text-align: center;
   margin: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  
 }
 
 .section-title {
@@ -300,6 +308,28 @@ body {
   }
 }
 
+
+/* Media Queries para Responsividad */
+
+/* Para pantallas grandes */
+@media (max-width: 1440px) {
+  .main-nav {
+    padding: 1.2rem 3%;
+  }
+  .nav-links {
+    gap: 40px;
+  }
+  .hero-overlay {
+    max-width: 95%;
+  }
+  .section-title {
+    font-size: 4.5em;
+  }
+  .countdown-timer span {
+    font-size: 4em;
+  }
+}
+
 /* Media Queries para Responsividad */
 
 /* Para pantallas medianas (Tablets grandes y pequeños laptops) */
@@ -314,7 +344,7 @@ body {
     max-width: 95%;
   }
   .section-title {
-    font-size: 4.8em;
+    font-size: 4.5em;
   }
   .countdown-timer span {
     font-size: 4em;
