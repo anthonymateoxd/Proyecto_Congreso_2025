@@ -106,11 +106,11 @@ function ComingSoon() {
           <div className="footer-info">
             <div className="footer-contact">
               <p><strong>PBX: (502) 7952-1041</strong></p>
-              <p>Ingeniería en sistemas 2025</p>
+              <p>Ingeniería en Sistemas 2025</p>
             </div>
             <div className="footer-university">
-              <p>Universidad Mariano Gálvez de Guatemala</p>
-              <p>© Derechos Reservados 2025 | Conferencia Ingeniería en sistemas</p>
+              <p>Universidad Mariano Gálvez de Guatemala | Campus Coban</p>
+              <p>© Derechos Reservados 2025 | XIII Congreso Ingeniería en Sistemas</p>
             </div>
           </div>
         </div>
