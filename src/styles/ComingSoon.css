@@ -12,10 +12,10 @@
 
 /* Base Styles */
 :root {
-  --primary-bg: #0B0E17;
-  --secondary-bg: #171E30;
-  --accent-color: #FFFFFF;
-  --text-light: #FFFFFF;
+  --primary-bg: #0b0e17;
+  --secondary-bg: #171e30;
+  --accent-color: #ffffff;
+  --text-light: #ffffff;
   --text-dark: #333333;
   --font-main: 'Pavanam', sans-serif;
   --font-heading: 'Paytone One', sans-serif;
@@ -68,8 +68,54 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   z-index: 0;
-  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
-  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.information-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1; /* Coloca el fondo detrás de otros elementos */
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.information-event {
+  width: 100vw;
+  min-height: 120vh; /* Asegura que el contenedor tenga suficiente altura */
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .hero-overlay {
@@ -174,11 +220,53 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   z-index: 0;
-  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
-  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
-  
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
 }
 
+/* Countdown Section */
+.information-event {
+  width: 100%;
+  min-height: 50vh;
+  padding: 9rem 5%;
+  background-color: var(--secondary-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
 .section-title {
   font-family: var(--font-main);
   font-size: 8.2em;
@@ -202,10 +290,9 @@ body {
   font-weight: bold;
   color: var(--accent-color);
   min-width: auto;
-  
 }
 
-.time-title{
+.time-title {
   font-family: var(--font-main);
   font-size: 1.2em;
   font-weight: normal;
@@ -214,8 +301,7 @@ body {
   margin-top: 0.5rem;
 }
 
-
-/* Footer */ 
+/* Footer */
 .main-footer {
   width: 100%;
   background-color: var(--primary-bg);
@@ -225,31 +311,31 @@ body {
 
 .footer-social {
   width: 100%;
-  background-color: #0B0E17;
-  padding: 2rem 0 0; 
+  background-color: #0b0e17;
+  padding: 2rem 0 0;
   display: flex;
   justify-content: center;
-  align-items: flex-end; 
+  align-items: flex-end;
   min-height: 80px;
 }
 
 .social-icons {
-    display: flex;
-    gap: 25px; 
-    justify-content: center;
-    align-items: flex-end;
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .social-icon img {
-    width: 55px;
-    height: 55px;
-    filter: brightness(1);
-    transition: transform 0.3s ease-in-out;
-    margin-bottom: -20px; 
+  width: 55px;
+  height: 55px;
+  filter: brightness(1);
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: -20px;
 }
 
 .social-icon img:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .footer-content {
@@ -259,7 +345,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-end; 
+  align-items: flex-end;
 }
 
 .footer-logo-container {
@@ -276,7 +362,8 @@ body {
   text-align: right;
 }
 
-.footer-contact p, .footer-university p {
+.footer-contact p,
+.footer-university p {
   margin: 0.4rem;
   font-size: 1rem;
 }
@@ -307,7 +394,6 @@ body {
     padding: 5rem 2%;
   }
 }
-
 
 /* Media Queries para Responsividad */
 
@@ -354,18 +440,18 @@ body {
 /* Para tablets y dispositivos medianos */
 @media (max-width: 768px) {
   .main-nav {
-      flex-direction: row;
-      padding: 5%;
-      width: 40%;
-      transform: scale(0.85);
-      transform-origin: top left;
+    flex-direction: row;
+    padding: 5%;
+    width: 40%;
+    transform: scale(0.85);
+    transform-origin: top left;
   }
   .nav-links {
     gap: 0.5px; /* Reduce aún más el espacio entre los enlaces */
     justify-content: flex-start; /* Alinea los enlaces hacia el inicio */
     width: auto; /* Ajusta el ancho para que no ocupe tanto espacio */
     flex-wrap: nowrap;
-    font-size: 2rem !important;    
+    font-size: 2rem !important;
     padding: 0.1rem 0.2rem; /* Reduce el espacio interno */
   }
   .hero-overlay {
@@ -387,14 +473,13 @@ body {
   .coming-soon-container {
     padding: 0 1rem;
   }
-  .time-title{
+  .time-title {
     flex-direction: row;
     font-size: 0.9em;
   }
 
-  /* Footer */ 
+  /* Footer */
 
-   
   .main-footer {
     display: flex;
     flex-direction: row;
@@ -433,10 +518,6 @@ body {
     text-align: center;
     margin-bottom: 1rem;
   }
-
-
-
-  
 }
 
 /* Para teléfonos pequeños */
@@ -453,7 +534,7 @@ body {
     justify-content: flex-start; /* Alinea los enlaces hacia el inicio */
     width: auto; /* Ajusta el ancho para que no ocupe tanto espacio */
     flex-wrap: nowrap;
-    font-size: 0.3rem !important;    
+    font-size: 0.3rem !important;
     padding: 0.1rem 0.2rem; /* Reduce el espacio interno */
   }
   .nav-logo {
@@ -468,11 +549,11 @@ body {
     flex-direction: row;
     font-size: 1.5em;
   }
-  .time-title{
+  .time-title {
     flex-direction: row;
     font-size: 0.9em;
   }
-    /* Footer */
+  /* Footer */
   .main-footer {
     display: flex;
     flex-direction: row;
@@ -511,5 +592,4 @@ body {
     text-align: center;
     margin-bottom: 1rem;
   }
-
 }
