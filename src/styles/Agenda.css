@@ -1,0 +1,56 @@
+.agenda-container {
+    background-color: #171e30;
+    color: white;
+    padding: 2rem;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .agenda-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+  }
+  
+  .agenda-dia {
+    margin-top: 2rem;
+  }
+  
+  .agenda-dia h3 {
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 1rem;
+  }
+  
+  .agenda-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #0c0c1d;
+    border: 1px solid white;
+  }
+  
+  .agenda-tabla th,
+  .agenda-tabla td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid white;
+  }
+  
+  .agenda-tabla th {
+    background-color: #131b41;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .agenda-tabla td {
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .agenda-tabla th,
+    .agenda-tabla td {
+      padding: 0.6rem;
+      font-size: 0.9rem;
+    }
+  }
+  

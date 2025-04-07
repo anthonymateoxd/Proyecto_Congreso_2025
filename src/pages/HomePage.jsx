@@ -14,6 +14,15 @@ import '../styles/InformationPage.css';
 import logo_1_informacion from '../Recursos/img/iconos/logo_1_informacion.png';
 import calendario from '../Recursos/img/iconos/logo-2-calendario.png';
 import ubicacion from '../Recursos/img/iconos/logo-3-ubicacion.png';
+import Agenda from '../pages/Agenda'; // importar agenda
+import '../styles/Agenda.css'; // Importar css de agenda
+
+import Conferencistas from '../pages/Conferencistas'; // Importar Apartadod de Conferencistas
+import '../styles/Conferencistas.css'; // Importar css de conferencistas
+import InfoAcademica from './InfoAcademica';
+import Patrocinadores from './Patrocinadores';
+
+
 
 function HomePage() {
   const fechaObjetivo = '2025-04-18 00:00:00';
@@ -156,6 +165,34 @@ function HomePage() {
           />
         </div>
       </section>
+
+      {/* INICIO DE LA SECIÓN DE TALLERES*/}
+
+        <section className="agenda-programada">
+            {/*<h2 className="agenda-title">Agenda Programada</h2>*/}
+            <Agenda />
+        </section>
+
+
+      {/* FIN DE LA SECIÓN DE TALLERES*/}
+
+      {/* INICIO DE LA SECCIÓN DE CONFERENCISTAS */}
+
+      <Conferencistas />
+
+      {/* FIN DE LA SECCIÓN DE CONFERENCISTAS */}
+
+      {/* INICIO DE LA SECCIÓN DE INFORMACIÓN ACADEMICA */}
+
+      <InfoAcademica />
+
+      {/* FIN DE LA SECCIÓN DE INFORMACIÓN ACADEMICA */}
+
+      {/* INICIO DE LA SECCIÓN DE PATROCINADORES*/}
+
+      <Patrocinadores />
+
+      {/* FIN DE LA SECCIÓN DE PATROCINADORES */}
 
       {/* FIN DE LA SECCION DE INFORMACION */}
 
