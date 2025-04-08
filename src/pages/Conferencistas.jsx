@@ -49,6 +49,17 @@ function Conferencistas() {
           </div>
         </div>
       </div>
+
+      <div className="conferencista-boton">
+                <a 
+                  href="" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="boton-transparente"
+                >
+                  ¡REGISTRATE!
+                </a>
+              </div>
     </section>
   );
 }

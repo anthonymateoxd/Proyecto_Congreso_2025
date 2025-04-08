@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import moment from 'moment-timezone';
 import { obtenerTiempoRestante } from "../Logica/contador"; // Solo una vez
 import "../styles/ComingSoon.css";
-import fondo1 from "../Recursos/img/image1.png";
+import fondo1 from "../Recursos/img/Fondooooo.jpg";
 import overlayImg from "../Recursos/img/XIII30Si.png";
 import logo from "../Recursos/img/logo.png";
 import fb from "../Recursos/img/iconos/fb.png";
