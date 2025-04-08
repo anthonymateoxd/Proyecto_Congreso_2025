@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment-timezone';
-import { obtenerTiempoRestante } from '../Logica/contador';
-import '../styles/ComingSoon.css';
-import fondo1 from '../Recursos/img/image1.png';
-import overlayImg from '../Recursos/img/XIII30Si.png';
-import logo from '../Recursos/img/logo.png';
-import fb from '../Recursos/img/iconos/fb.png';
-import google from '../Recursos/img/iconos/google.png';
-import Umg from '../Recursos/img/Logofooter.png';
-import fondo2 from '../Recursos/img/Edificio5.png';
+import { obtenerTiempoRestante } from "../Logica/contador"; // Solo una vez
+import "../styles/ComingSoon.css";
+import fondo1 from "../Recursos/img/image1.png";
+import overlayImg from "../Recursos/img/XIII30Si.png";
+import logo from "../Recursos/img/logo.png";
+import fb from "../Recursos/img/iconos/fb.png";
+import ig from "../Recursos/img/iconos/ig.png";
+import google from "../Recursos/img/iconos/google.png";
+import Umg from "../Recursos/img/Logofooter.png"; 
+import fondo2 from "../Recursos/img/Edificio5.png";
+
 
 function ComingSoon() {
   const fechaObjetivo = '2025-04-18 00:00:00';
