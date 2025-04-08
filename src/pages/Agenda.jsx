@@ -4,12 +4,12 @@ import '../styles/Agenda.css';
 const Agenda = () => {
   const agendaData = {
     "Viernes 16": [
-      { hora: "09:00 - 10:00", taller: "Taller 1", conferencista: "Nombre 1" },
-      { hora: "10:15 - 11:15", taller: "Taller ", conferencista: "Nombre 2" }
+      { hora: "09:00 - 10:00", taller: "Taller 1", conferencista: "Nombre 1", salon: "Salon 1" },
+      { hora: "10:15 - 11:15", taller: "Taller ", conferencista:  "Nombre 2", salon:  "Salon 2" },
     ],
     "Sábado 17": [
-      { hora: "09:00 - 10:00", taller: "Taller 3", conferencista: "Nombre 3" },
-      { hora: "10:15 - 11:15", taller: "Taller 4", conferencista: "Nombre 4" }
+      { hora: "09:00 - 10:00", taller: "Taller 3", conferencista: "Nombre 3", salon: "Salon 3" },
+      { hora: "10:15 - 11:15", taller: "Taller 4", conferencista: "Nombre 4", salon: "Salon 4" },
     ]
   };
 
@@ -25,17 +25,20 @@ const Agenda = () => {
                 <th>Hora</th>
                 <th>Taller</th>
                 <th>Conferencista</th>
+                <th>Salon</th>
               </tr>
             </thead>
             <tbody>
               {actividades.map((item, index) => (
                 <tr key={index}>
-                  <td>{item.hora}</td>
-                  <td>{item.taller}</td>
-                  <td>{item.conferencista}</td>
+                  <td className="agenda-hora">{item.hora}</td>
+                  <td className="agenda-taller">{item.taller}</td>
+                  <td className="agenda-conferencista">{item.conferencista}</td>
+                  <td className="agenda-salon">{item.salon}</td>
                 </tr>
               ))}
             </tbody>
+
           </table>
         </div>
       ))}
