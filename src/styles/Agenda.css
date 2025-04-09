@@ -1,0 +1,100 @@
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pavanam&family=Paytone+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chonburi&family=Pavanam&family=Paytone+One&display=swap');
+
+.agenda-container {
+    background-color: #1C2246;
+    background-color: #0B0E17;
+    color: #FFFFFF;
+    padding: 2rem;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .agenda-title {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    font-family: 'chonburi', sans-serif;
+  }
+  
+  .agenda-dia {
+    margin-top: 2rem;
+    font-family: 'chonburi', sans-serif;
+    font-size: 1.2rem;
+    
+  }
+  
+  .agenda-dia h3 {
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  
+  
+  .agenda-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1C2246;
+    background-color: #0B0E17;
+    font-family: 'paytone one', sans-serif; 
+  }
+  
+
+
+  .agenda-hora {
+    /* Ejemplo de estilo para la hora */
+    color:#FFFFFF;
+    font-weight: bold;
+    font-family: 'pavanam', sans-serif;
+  }
+  
+  .agenda-taller {
+    /* Ejemplo de estilo para el taller */
+    color: #FFFFFF;
+    font-weight: bold;
+    font-family: 'pavanam', sans-serif;
+  }
+  
+  .agenda-conferencista {
+    /* Ejemplo de estilo para el conferencista */
+    color: #FFFFFF;
+    font-style: italic;
+    font-family: 'pavanam', sans-serif;
+  }
+  
+  .agenda-salon {
+    /* Ejemplo de estilo para el salón */
+    color: #FFFFFF;
+    font-weight: bold;
+    font-family: 'pavanam', sans-serif;
+  }
+
+  .agenda-tabla th,
+  .agenda-tabla td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1.5px solid white;
+  }
+  
+  .agenda-tabla thead tr {
+    background-image: linear-gradient(to right, #0B0E17, #1C2246);
+  }
+  
+  .agenda-tabla th {
+    background: transparent;  /* Asegúrate de no sobrescribir el fondo */
+    color: white;
+    font-weight: bold;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .agenda-tabla th,
+    .agenda-tabla td {
+      padding: 0.6rem;
+      font-size: 0.9rem;
+    }
+  }
+  
