@@ -1,139 +1,211 @@
 /* src/styles/Conferencistas.css */
 .conferencistas-section {
-    position: relative;
-    padding: 5rem 2rem;
-    text-align: center;
-    min-height: 100vh; /* Asegura que ocupe al menos toda la altura de la pantalla */
-    background-image: url('../Recursos/img/fondo3.jpg');
-    background-size: cover; /* Cubre todo el contenedor */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita repetición */
-    background-attachment: fixed; /* Efecto parallax (opcional) */
-    color: #fff;
+  position: relative;
+  padding: 5rem 2rem;
+  text-align: center;
+  min-height: 100vh; /* Asegura que ocupe al menos toda la altura de la pantalla */
+  background-image: url('../Recursos/img/fondo3.jpg');
+  background-size: cover; /* Cubre todo el contenedor */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita repetición */
+  background-attachment: fixed; /* Efecto parallax (opcional) */
+  color: #fff;
+}
+
+.conferencistas-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.6
+  ); /* Overlay semitransparente para mejor legibilidad */
+}
+
+.conferencistas-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.titulo-conferencistas {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.profesion-conferencistas {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  letter-spacing: 0.1rem;
+  color: #ddd;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2rem;
+}
+
+.conferencistas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
+  margin: 3rem auto 0;
+  padding: 0 2rem;
+}
+
+.conferencista-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.conferencista-foto-container {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #fff;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  background-color: #fff; /* Fondo blanco por si la imagen no carga */
+}
+
+.conferencista-foto-container:hover {
+  transform: scale(1.05);
+  border-color: #ff6b00; /* Color de acento al hacer hover */
+}
+
+.conferencista-foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.conferencista-foto-container:hover .conferencista-foto {
+  transform: scale(1.1);
+}
+
+.nombre-conferencista {
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+  margin-top: 0.5rem;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+}
+
+.conferencista-boton {
+  justify-content: center;
+  align-items: center;
+  margin-top: 30rem; /* Ajusta el espacio superior */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .conferencistas-section {
+    padding: 3rem 1rem;
+    background-attachment: scroll; /* Mejor rendimiento en móviles */
   }
-  
-  .conferencistas-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6); /* Overlay semitransparente para mejor legibilidad */
-  }
-  
-  .conferencistas-content {
-    position: relative;
-    z-index: 1;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-  
+
   .titulo-conferencistas {
-    font-size: 3rem;
-    font-weight: 700;
-    letter-spacing: 0.5rem;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    color: #fff;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 2rem;
+    letter-spacing: 0.3rem;
   }
-  
+
   .profesion-conferencistas {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    letter-spacing: 0.1rem;
-    color: #ddd;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-    margin-bottom: 2rem;
+    font-size: 1rem;
   }
-  
+
   .conferencistas-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 3rem;
-    margin: 3rem auto 0;
-    padding: 0 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
   }
-  
-  .conferencista-item {
-    display: flex;
+
+  .conferencista-foto-container {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .conferencistas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Estilos para los botones - posición original */
+.conferencista-botones {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 4rem;
+  padding-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.boton-union,
+.boton-acceso {
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+  min-width: 220px;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.boton-union {
+  background: linear-gradient(135deg, #4a6fa5 0%, #3a5a8a 100%);
+  color: white;
+  border: none;
+}
+
+.boton-union:hover {
+  background: linear-gradient(135deg, #3a5a8a 0%, #2d4a75 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.boton-acceso {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  backdrop-filter: blur(5px);
+}
+
+.boton-acceso:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive para botones */
+@media (max-width: 768px) {
+  .conferencista-botones {
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
   }
-  
-  .conferencista-foto-container {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid #fff;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease;
-    background-color: #fff; /* Fondo blanco por si la imagen no carga */
-  }
-  
-  .conferencista-foto-container:hover {
-    transform: scale(1.05);
-    border-color: #ff6b00; /* Color de acento al hacer hover */
-  }
-  
-  .conferencista-foto {
+
+  .boton-union,
+  .boton-acceso {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+    max-width: 280px;
+    padding: 10px 20px;
   }
-  
-  .conferencista-foto-container:hover .conferencista-foto {
-    transform: scale(1.1);
-  }
-  
-  .nombre-conferencista {
-    font-size: 1.2rem;
-    letter-spacing: 0.1rem;
-    margin-top: 0.5rem;
-    color: #fff;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-    font-weight: 500;
-  }
-
-  .conferencista-boton{
-    justify-content: center;
-    align-items: center;
-    margin-top: 30rem; /* Ajusta el espacio superior */
-  }  
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .conferencistas-section {
-      padding: 3rem 1rem;
-      background-attachment: scroll; /* Mejor rendimiento en móviles */
-    }
-    
-    .titulo-conferencistas {
-      font-size: 2rem;
-      letter-spacing: 0.3rem;
-    }
-    
-    .profesion-conferencistas {
-      font-size: 1rem;
-    }
-    
-    .conferencistas-grid {
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 2rem;
-    }
-    
-    .conferencista-foto-container {
-      width: 150px;
-      height: 150px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .conferencistas-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
+}

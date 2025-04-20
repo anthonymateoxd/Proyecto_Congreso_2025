@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import moment from 'moment-timezone';
-import { obtenerTiempoRestante } from '../Logica/contador';
 import '../styles/ComingSoon.css';
 import fondo1 from '../Recursos/img/Fondooooo.jpg';
 import overlayImg from '../Recursos/img/XIII30Si.png';
@@ -22,43 +20,21 @@ import '../styles/Conferencistas.css'; // Importar css de conferencistas
 import InfoAcademica from './InfoAcademica';
 import Patrocinadores from './Patrocinadores';
 
-
-
 function HomePage() {
-  const fechaObjetivo = '2025-04-18 00:00:00';
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-  const [tiempoRestante, setTiempoRestante] = useState({
+  const tiempoFijo = {
     diasRestantes: '00',
     horasRestantes: '00',
     minutosRestantes: '00',
     segundosRestantes: '00',
-  });
-  const [horaGuatemala, setHoraGuatemala] = useState('00:00:00');
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  };
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  useEffect(() => {
-    const actualizarTemporizador = () => {
-      const tiempo = obtenerTiempoRestante(fechaObjetivo);
-      setTiempoRestante({
-        diasRestantes: String(tiempo.diasRestantes).padStart(2, '0'),
-        horasRestantes: String(tiempo.horasRestantes).padStart(2, '0'),
-        minutosRestantes: String(tiempo.minutosRestantes).padStart(2, '0'),
-        segundosRestantes: String(tiempo.segundosRestantes).padStart(2, '0'),
-      });
-      setHoraGuatemala(
-        moment.tz('America/Guatemala').format('YYYY-MM-DD HH:mm:ss')
-      );
-    };
-
-    const timer = setInterval(actualizarTemporizador, 1000);
-    return () => clearInterval(timer);
-  }, [fechaObjetivo]);
 
   return (
     <div className='coming-soon-container'>
@@ -98,22 +74,22 @@ function HomePage() {
         <h2 className='section-title'>P R Ó X I M A M E N T E</h2>
         <div className='countdown-timer'>
           <div className='time-box'>
-            <span>{tiempoRestante.diasRestantes}</span>
+            <span>{tiempoFijo.diasRestantes}</span>
             <p className='time-title'>DÍAS</p>
           </div>
           <span className='separator'>:</span>
           <div className='time-box'>
-            <span>{tiempoRestante.horasRestantes}</span>
+            <span>{tiempoFijo.horasRestantes}</span>
             <p className='time-title'>HORAS</p>
           </div>
           <span className='separator'>:</span>
           <div className='time-box'>
-            <span>{tiempoRestante.minutosRestantes}</span>
+            <span>{tiempoFijo.minutosRestantes}</span>
             <p className='time-title'>MINUTOS</p>
           </div>
           <span className='separator'>:</span>
           <div className='time-box'>
-            <span>{tiempoRestante.segundosRestantes}</span>
+            <span>{tiempoFijo.segundosRestantes}</span>
             <p className='time-title'>SEGUNDOS</p>
           </div>
         </div>
@@ -168,11 +144,10 @@ function HomePage() {
 
       {/* INICIO DE LA SECIÓN DE TALLERES*/}
 
-        <section className="agenda-programada">
-            {/*<h2 className="agenda-title">Agenda Programada</h2>*/}
-            <Agenda />
-        </section>
-
+      <section className='agenda-programada'>
+        {/*<h2 className="agenda-title">Agenda Programada</h2>*/}
+        <Agenda />
+      </section>
 
       {/* FIN DE LA SECIÓN DE TALLERES*/}
 

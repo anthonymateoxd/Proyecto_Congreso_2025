@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment-timezone';
-import { obtenerTiempoRestante } from "../Logica/contador"; // Solo una vez
-import "../styles/ComingSoon.css";
-import fondo1 from "../Recursos/img/Fondooooo.jpg";
-import overlayImg from "../Recursos/img/XIII30Si.png";
-import logo from "../Recursos/img/logo.png";
-import fb from "../Recursos/img/iconos/fb.png";
-import ig from "../Recursos/img/iconos/ig.png";
-import google from "../Recursos/img/iconos/google.png";
-import Umg from "../Recursos/img/Logofooter.png"; 
-import fondo2 from "../Recursos/img/Edificio5.png";
-
+import { useNavigate } from 'react-router-dom';
+import '../styles/ComingSoon.css';
+import fondo1 from '../Recursos/img/Fondooooo.jpg';
+import overlayImg from '../Recursos/img/XIII30Si.png';
+import logo from '../Recursos/img/logo.png';
+import fb from '../Recursos/img/iconos/fb.png';
+import google from '../Recursos/img/iconos/google.png';
+import Umg from '../Recursos/img/Logofooter.png';
+import fondo2 from '../Recursos/img/Edificio5.png';
 
 function ComingSoon() {
-  const fechaObjetivo = '2025-04-18 00:00:00';
+  const fechaObjetivo = '2025-04-10 23:10:00'; // Puedes dejarlo así
+  const navigate = useNavigate();
 
   const [tiempoRestante, setTiempoRestante] = useState({
     diasRestantes: '00',
@@ -21,7 +20,7 @@ function ComingSoon() {
     minutosRestantes: '00',
     segundosRestantes: '00',
   });
-  const [horaGuatemala, setHoraGuatemala] = useState('00:00:00');
+
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
@@ -32,21 +31,38 @@ function ComingSoon() {
 
   useEffect(() => {
     const actualizarTemporizador = () => {
-      const tiempo = obtenerTiempoRestante(fechaObjetivo);
-      setTiempoRestante({
-        diasRestantes: String(tiempo.diasRestantes).padStart(2, '0'),
-        horasRestantes: String(tiempo.horasRestantes).padStart(2, '0'),
-        minutosRestantes: String(tiempo.minutosRestantes).padStart(2, '0'),
-        segundosRestantes: String(tiempo.segundosRestantes).padStart(2, '0'),
-      });
-      setHoraGuatemala(
-        moment.tz('America/Guatemala').format('YYYY-MM-DD HH:mm:ss')
+      const ahora = moment().tz('America/Guatemala');
+      const fechaFinal = moment.tz(fechaObjetivo, 'America/Guatemala');
+
+      // Calcula la diferencia manualmente si es necesario
+      const diferencia = fechaFinal.diff(ahora);
+
+      // Si el tiempo ya pasó (diferencia negativa)
+      if (diferencia <= 0) {
+        navigate('/home');
+        return;
+      }
+
+      // Calcula días, horas, minutos, segundos
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor(
+        (diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
       );
+      const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+      setTiempoRestante({
+        diasRestantes: String(dias).padStart(2, '0'),
+        horasRestantes: String(horas).padStart(2, '0'),
+        minutosRestantes: String(minutos).padStart(2, '0'),
+        segundosRestantes: String(segundos).padStart(2, '0'),
+      });
+      //
     };
 
     const timer = setInterval(actualizarTemporizador, 1000);
     return () => clearInterval(timer);
-  }, [fechaObjetivo]);
+  }, [fechaObjetivo, navigate]);
 
   return (
     <div className='coming-soon-container'>
